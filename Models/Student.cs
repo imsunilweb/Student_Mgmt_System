@@ -5,7 +5,7 @@ namespace Student_Mgmt_System.Models
     public class Student
     {
         [Key]
-        public int StudentID { get; set; }//it is not nullable type 
+        public int StudentID { get; set; }
 
         [Required, MaxLength(100)]
         public string Name { get; set; }
