@@ -10,13 +10,14 @@ namespace Student_Mgmt_System.Models
         [Required, MaxLength(100)]
         public string Name { get; set; }
 
-        [EmailAddress]
+        [Required, EmailAddress]
         public string Email { get; set; }
-
+        [Required]
         public string Phone { get; set; }
-
+        [Required]
         public string Course { get; set; }
 
+        [Required, DataType(DataType.Date)]
         public DateTime EnrollmentDate { get; set; } = DateTime.Now;
     }
 }
