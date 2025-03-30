@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Student_Mgmt_System.Data;
+using Student_Mgmt_System.UnitOfWorkPattern;
 
 namespace Student_Mgmt_System
 {
@@ -8,6 +9,8 @@ namespace Student_Mgmt_System
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -33,7 +36,7 @@ namespace Student_Mgmt_System
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Students}/{action=Index}/{id?}");
 
             app.Run();
         }
