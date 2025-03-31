@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Student_Mgmt_System.Models
 {
@@ -12,11 +13,14 @@ namespace Student_Mgmt_System.Models
 
         [EmailAddress]
         public string Email { get; set; }
-
+        [Required]
         public string Phone { get; set; }
-
-        public string Course { get; set; }
-
+        [Required]
         public DateTime EnrollmentDate { get; set; } = DateTime.Now;
+
+        [Required, ForeignKey("Course")]
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }
+        
     }
 }
